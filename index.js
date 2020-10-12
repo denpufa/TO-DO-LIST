@@ -8,10 +8,10 @@ const ul = document.querySelector("ul")
 
 botaoCadastrar.onclick = ev  =>  {
     ev.preventDefault()
-    if(descricao.nodeValue && prazo.nodeValue && encarregado.nodeValue){ 
+    if(descricao.value && prazo.value && encarregado.value){ 
         
         const texto = document.createElement('span')
-        texto.innerHTML = $(descricao.nodeValue) + " " + $(prazo.nodeValue) +  " " +  $(encarregado.nodeValue)
+        texto.innerHTML = $(descricao.value) + " " + $(prazo.value) +  " " +  $(encarregado.value)
         const botao = document.createElement('button')
         botao.innerHTML = 'remover'
         
@@ -20,9 +20,14 @@ botaoCadastrar.onclick = ev  =>  {
         li.appendChild(botao)
         
         ul.appendChild(li)
+        botao.onclick = () => {
+            ul.removeChild(li)
+
+            
+        }
         
-        descricao.nodeValue = ""
-        prazo.nodeValue = ""
-        encarregado.nodeValue = ""
+        descricao.value = ""
+        prazo.value = ""
+        encarregado.value = ""
     }
 }
