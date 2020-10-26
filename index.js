@@ -1,8 +1,8 @@
-const botaoCadastrar = document.querySelector("form button")
-const descricao = document.querySelector("form #descricao")
-const prazo = document.querySelector("form #prazo")
-const encarregado = document.querySelector("form #encarregado")
-const ul = document.querySelector("ul")
+const botaoCadastrar = document.getElementById('botao_cadastrar')
+const descricao = document.getElementById('descricao')
+const prazo = document.getElementById('prazo')
+const encarregado = document.getElementById('encarregado')
+const ul = document.getElementById('a_fazer')
 
 
 
@@ -11,7 +11,7 @@ botaoCadastrar.onclick = ev  =>  {
     if(descricao.value && prazo.value && encarregado.value){ 
         
         const texto = document.createElement('span')
-        texto.innerHTML = $(descricao.value) + " " + $(prazo.value) +  " " +  $(encarregado.value)
+        texto.innerHTML = descricao.nodeValue + " " + prazo.nodeValue +  " " +  encarregado.nodeValue
         const botao = document.createElement('button')
         botao.innerHTML = 'remover'
         
