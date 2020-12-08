@@ -3,6 +3,7 @@ const container = document.querySelector('.container');
 var inputValue = document.querySelector('.input');
 const add = document.querySelector('.add');
 const time = document.querySelector('.time')
+
 const url = 'http://localhost:8080/'
 var dataCome;
 fetch(url)
@@ -11,9 +12,6 @@ fetch(url)
         dataCome = data;
  }  )
 var todos = JSON.parse(dataCome);
-
-
-
 
 
 
@@ -81,13 +79,20 @@ function showTime(){
 }
 
 add.addEventListener('click', post);
-
+window.addEventListener('keydown', (e) => {
+	fetch(url,{
+        method: 'POST',
+        headers : {
+            'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify(todos)
+    })
+})
 
 function post(){
 	if(inputValue.value != ""){
 		new item(inputValue.value);
         todos.push(inputValue.value);
-        window.localStorage.setItem("todos", JSON.stringify(todos));
 		inputValue.value = "";
 	}
 }
